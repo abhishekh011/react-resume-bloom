@@ -64,10 +64,11 @@ const Contact = () => {
                 <div>
                   <p className="font-medium">LinkedIn</p>
                   <a
-                    href="https://www.linkedin.com/in/mohit-rajput-mr13"
+                  target="_blank"
+                    href="www.linkedin.com/in/abhishekh-jadam"
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    linkedin.com/in/
+                   www.linkedin.com/in/abhishekh-jadam
                   </a>
                 </div>
               </div>
