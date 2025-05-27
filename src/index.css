@@ -98,8 +98,71 @@
   .animate-fade-in {
     animation: fadeIn 1s ease-in-out;
   }
+
+  /* 3D Animation Classes */
+  .transform-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .transform-3d-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .transform-3d-text {
+    animation: float3D 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  .floating-cube {
+    animation: floating 4s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  .floating-sphere {
+    animation: floating 5s ease-in-out infinite reverse;
+    transform-style: preserve-3d;
+  }
+
+  .floating-triangle {
+    animation: floating 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+  }
+
+  .hover-3d:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .skill-card-3d {
+    animation: slideIn3D 0.8s ease-out forwards;
+    opacity: 0;
+    transform: perspective(1000px) rotateY(30deg) translateY(50px);
+  }
+
+  .skill-card-3d:hover {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .skill-tag-3d:hover {
+    transform: perspective(500px) rotateX(10deg) scale(1.1);
+  }
+
+  .project-card-3d {
+    animation: slideIn3D 1s ease-out forwards;
+    opacity: 0;
+    transform: perspective(1000px) rotateX(20deg) translateY(100px);
+  }
+
+  .project-card-3d:hover {
+    transform: perspective(1000px) rotateX(-2deg) rotateY(2deg) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  }
 }
 
+/* 3D Keyframe Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -108,6 +171,61 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(2deg) rotateY(1deg) translateY(-10px);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(2deg) translateY(-5px);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(-1deg) rotateY(-1deg) translateY(-8px);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-3deg) rotateY(8deg) translateY(-10px) translateX(-5px);
+  }
+  75% {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateY(-15px) translateX(8px);
+  }
+}
+
+@keyframes slideIn3D {
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px);
+  }
+}
+
+/* Responsive 3D adjustments */
+@media (max-width: 768px) {
+  .transform-3d-text {
+    animation: float3D 4s ease-in-out infinite;
+  }
+  
+  .floating-cube,
+  .floating-sphere,
+  .floating-triangle {
+    animation-duration: 3s;
+  }
+  
+  .skill-card-3d:hover,
+  .project-card-3d:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
   }
 }
 

@@ -48,15 +48,22 @@ const Projects = () => {
   return (
     <section className="py-20 bg-white" id="projects">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
+        <h2 className="text-4xl font-bold text-center mb-16 text-gray-800 transform-3d-text">
           Key Projects
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              key={index} 
+              className="hover:shadow-2xl transition-all duration-500 transform hover:scale-105 project-card-3d group"
+              style={{ 
+                animationDelay: `${index * 300}ms`,
+                transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+              }}
+            >
               <CardHeader>
-                <CardTitle className="text-xl text-gray-800">{project.title}</CardTitle>
+                <CardTitle className="text-xl text-gray-800 group-hover:text-blue-600 transition-colors duration-300">{project.title}</CardTitle>
                 <CardDescription className="text-gray-600">{project.description}</CardDescription>
               </CardHeader>
               <CardContent>
@@ -69,18 +76,29 @@ const Projects = () => {
                   
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, idx) => (
-                      <Badge key={idx} variant="secondary" className="text-xs">
+                      <Badge 
+                        key={idx} 
+                        variant="secondary" 
+                        className="text-xs transform hover:scale-110 hover:rotate-1 transition-all duration-300"
+                      >
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   
                   <div className="flex space-x-3 pt-4">
-                    <Button size="sm" variant="outline" className="flex items-center space-x-1">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex items-center space-x-1 transform hover:scale-110 hover:rotate-1 transition-all duration-300"
+                    >
                       <Github className="h-4 w-4" />
                       <span>Code</span>
                     </Button>
-                    <Button size="sm" className="flex items-center space-x-1">
+                    <Button 
+                      size="sm" 
+                      className="flex items-center space-x-1 transform hover:scale-110 hover:-rotate-1 transition-all duration-300"
+                    >
                       <ExternalLink className="h-4 w-4" />
                       <span>Live Demo</span>
                     </Button>
